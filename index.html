@@ -364,7 +364,7 @@
                 
               
 
-              <time title="创建时间：2019-06-19 15:10:18 / 修改时间：15:46:12" itemprop="dateCreated datePublished" datetime="2019-06-19T15:10:18+08:00">2019-06-19</time>
+              <time title="创建时间：2019-06-19 15:10:18 / 修改时间：15:55:21" itemprop="dateCreated datePublished" datetime="2019-06-19T15:10:18+08:00">2019-06-19</time>
             
 
             
@@ -999,6 +999,32 @@
   
 
   
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
 
   
 
